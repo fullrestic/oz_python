@@ -26,4 +26,4 @@ Boolean(논리값) : 참과 거짓 Ture, False -> 1, 0
 # print(3, end="")
 # print(3)
 
-print("010","8393","9324",sep='-')
+print("010","1234","5678",sep='-')
