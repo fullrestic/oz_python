@@ -20,7 +20,7 @@ class Contact :
     def __init__(self, name, phone, email, address = '') :
         self.name = name
         self.phone = self.validate_phone(phone)   # 입력 받자마자 유효성 확인
-        self.phone = self.validate_email(email)   # 입력 받자마자 유효성 확인
+        self.email = self.validate_email(email)   # 입력 받자마자 유효성 확인
         self.address = address
 
     @staticmethod
@@ -68,7 +68,7 @@ class AddressBook :
                 keyword in contact.phone or
                 keyword.lower() in contact.email.lower()) :
                 results.append(contact)
-                return results
+        return results
             
     def save(self) :
         self.backup()
@@ -106,7 +106,7 @@ class AddressBook :
             self.contacts = []
 
     def backup(self) :
-        backup_dir = Path('backup')
+        backup_dir = Path(__file__).parent / "backups"
         backup_dir.mkdir(exist_ok=True)
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -123,11 +123,11 @@ class AddressBook :
     def export_csv(self, filename) :
         try :
             with open(filename, 'w', newline='', encoding='utf-8') as f :
-                filename = ['name', 'phone', 'email', 'address']    # 열 제목 출력
-                writer = csv.DictWriter(f, filenames = filename)
+                fieldnames = ['name', 'phone', 'email', 'address']    # 열 제목 출력
+                writer = csv.DictWriter(f, fieldnames = fieldnames)
                 writer.writeheader()
                 for contact in self.contacts :
-                    writer.writer(contact.to_dict())
+                    writer.writerow(contact.to_dict())
 
             logger.info(f'CSV로 내보내기가 완료되었습니다 : {filename}')
         except Exception as e:
