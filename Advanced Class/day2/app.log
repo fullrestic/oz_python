@@ -1,0 +1,74 @@
+2025-06-26 22:11:26,481 - __main__ - INFO - 연락처가 추가되었습니다 : 홍길동
+2025-06-26 22:11:26,481 - __main__ - ERROR - 백업 생성에 실패했습니다 : 'Contact' object has no attribute 'email'
+Traceback (most recent call last):
+  File "/Users/jh/Desktop/수준별-심화 day2/contact.py", line 117, in backup
+    data = [c.to_dict() for c in self.contacts]
+            ~~~~~~~~~^^
+  File "/Users/jh/Desktop/수준별-심화 day2/contact.py", line 44, in to_dict
+    'email' : self.email,
+              ^^^^^^^^^^
+AttributeError: 'Contact' object has no attribute 'email'
+2025-06-26 22:11:26,485 - __main__ - CRITICAL - 프로그램 오류
+Traceback (most recent call last):
+  File "/Users/jh/Desktop/수준별-심화 day2/contact.py", line 78, in save
+    data = [c.to_dict() for c in self.contacts]
+            ~~~~~~~~~^^
+  File "/Users/jh/Desktop/수준별-심화 day2/contact.py", line 44, in to_dict
+    'email' : self.email,
+              ^^^^^^^^^^
+AttributeError: 'Contact' object has no attribute 'email'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jh/Desktop/수준별-심화 day2/contact.py", line 143, in <module>
+    book.add_contact(contact)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/jh/Desktop/수준별-심화 day2/contact.py", line 62, in add_contact
+    self.save() # 변경사항 즉시 파일에 저장
+    ~~~~~~~~~^^
+  File "/Users/jh/Desktop/수준별-심화 day2/contact.py", line 82, in save
+    logger.error(f'저장에 실패했습니다 : {e}', exe_info = True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/logging/__init__.py", line 1548, in error
+    self._log(ERROR, msg, args, **kwargs)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Logger._log() got an unexpected keyword argument 'exe_info'. Did you mean 'exc_info'?
+2025-06-26 22:12:38,912 - __main__ - ERROR - 파일 로드에 실패했습니다 : Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/Users/jh/Desktop/수준별-심화 day2/contact.py", line 92, in load
+    data = json.load(f) # jon 파일이 존재하면 json파일에서 우선적으로 불러옴
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+        cls=cls, object_hook=object_hook,
+        parse_float=parse_float, parse_int=parse_int,
+        parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-06-26 22:12:38,916 - __main__ - INFO - 연락처가 추가되었습니다 : 홍길동
+2025-06-26 22:12:59,063 - __main__ - ERROR - 파일 로드에 실패했습니다 : Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/Users/jh/Desktop/수준별-심화 day2/contact.py", line 92, in load
+    data = json.load(f) # jon 파일이 존재하면 json파일에서 우선적으로 불러옴
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+        cls=cls, object_hook=object_hook,
+        parse_float=parse_float, parse_int=parse_int,
+        parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-06-26 22:12:59,067 - __main__ - INFO - 연락처가 추가되었습니다 : 홍길동
